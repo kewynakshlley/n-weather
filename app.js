@@ -11,6 +11,9 @@ const weatherUrl = "http://api.weatherstack.com/current?access_key="+weatherKey+
 const geoUrl = "https://api.mapbox.com/geocoding/v5/mapbox.places/Los%20Angeles.json?access_token="+geoKey
 
 request({url: weatherUrl, json: true}, (error, response) => {
+    if(error){
+        console.log('Unable to connect to the weather API..')
+    }
     console.log("It's currently " + response.body.current.temperature + " degrees. It feels like "+response.body.current.feelslike)
     console.log(response.body.current.weather_descriptions[0])
 })
