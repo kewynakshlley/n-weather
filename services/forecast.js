@@ -1,5 +1,5 @@
 const request = require("request");
-const secrets = require("./secrets");
+const secrets = require("../utils/secrets");
 
 const weatherKey = secrets.weatherKey;
 const weatherUrl =
