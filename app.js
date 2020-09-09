@@ -4,20 +4,20 @@ const forecast = require("./services/forecast");
 const address = process.argv[2]
 
 if (address) {
-    geocode(address, (error, data) => {
+    geocode(address, (error, {latitude, longitude, location} = {}) => {
         if(error){
             return console.log(error);
         }
 
-        forecast(data.latitude, data.longitude, (error, forecastData) => {
+        forecast(latitude, longitude, (error, {temperature, feelslike, weather_description} = {}) => {
             if (error) {
                 return console.log(error);
             }
 
-            console.log(data.location);
-            console.log("Temperature of " + forecastData.temperature +" Cº.")
-            console.log("Feelslike " + forecastData.feelslike + " Cº.")
-            console.log(forecastData.weather_description)
+            console.log(location);
+            console.log("Temperature of " + temperature +" Cº.")
+            console.log("Feelslike " + feelslike + " Cº.")
+            console.log(weather_description)
 
         })
     })

@@ -7,16 +7,16 @@ const weatherUrl =
 
 const forecast = (latitude, longitude, callback) => {
     const finalURL = weatherUrl + latitude + "," + longitude
-    request({ url: finalURL, json: true }, (error, response) => {
+    request({ url: finalURL, json: true }, (error, { body }) => {
         if (error) {
             callback("Unable to connect to the weather API..", undefined);
-        } else if (response.body.error) {
+        } else if (body.error) {
             callback("Unable to find location.", undefined);
         } else {
             callback(undefined, {
-                temperature: response.body.current.temperature,
-                feelslike: response.body.current.feelslike,
-                weather_description: response.body.current.weather_descriptions[0],
+                temperature: body.current.temperature,
+                feelslike: body.current.feelslike,
+                weather_description: body.current.weather_descriptions[0],
             })
         }
     })
