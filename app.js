@@ -1,18 +1,20 @@
 const geocode = require("./services/geocode");
 const forecast = require("./services/forecast");
 
-forecast(-71.0596, 42.3605, (error, data) => {
-    if (error) {
-        console.log(error);
-    } else {
-        console.log(data);
+geocode("João Pessoa", (error, data) => {
+    if(error){
+        return console.log(error);
     }
-})
 
-geocode("Boston", (error, data) => {
-    if (error) {
-        console.log(error);
-    } else {
-        console.log(data);
-    }
+    forecast(data.latitude, data.longitude, (error, forecastData) => {
+        if (error) {
+            return console.log(error);
+        }
+
+        console.log(data.location);
+        console.log("Temperature of " + forecastData.temperature +" Cº.")
+        console.log("Feelslike " + forecastData.feelslike + " Cº.")
+        console.log(forecastData.weather_description)
+
+    })
 })
