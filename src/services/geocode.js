@@ -1,12 +1,12 @@
+
 const request = require('request')
-const secrets = require("../utils/secrets");
+const secrets = require("../utils/secrets.js");
 
 const geoKey = secrets.geoKey
 const geoUrl = "https://api.mapbox.com/geocoding/v5/mapbox.places/"
 
-const geocode = (address, callback) => {
-    const finalURL = geoUrl + encodeURIComponent(address) + ".json?access_token=" + geoKey
-
+const geocode = (city, callback) => {
+    const finalURL = geoUrl + encodeURIComponent(city) + ".json?access_token=" + geoKey
     request({ url: finalURL, json: true}, (error, { body }) => {
         if (error){
             callback('Unable to connect to the geo API..', undefined)
