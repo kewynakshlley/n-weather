@@ -1,7 +1,7 @@
 const request = require("request");
 const secrets = require("../utils/secrets");
 
-const weatherKey = process.env.WEATHER_KEY;
+const weatherKey = "f2e46a8dba3fed054932ea8ed3c52f58"
 const weatherUrl =
     "http://api.weatherstack.com/current?access_key=" + weatherKey + "&query=";
 

@@ -2,7 +2,7 @@
 const request = require('request')
 const secrets = require("../utils/secrets.js");
 
-const geoKey = process.env.GEO_KEY
+const geoKey = "pk.eyJ1Ijoia2V3eW5ha3NobGxleSIsImEiOiJja2V0bXNocm8yaHJoMzJvNWRneXJ2OHdlIn0.3JAQYBF680MY65UF3iKmNg"
 const geoUrl = "https://api.mapbox.com/geocoding/v5/mapbox.places/"
 
 const geocode = (city, callback) => {
