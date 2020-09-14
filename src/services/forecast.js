@@ -3,7 +3,7 @@ const secrets = require("../utils/secrets");
 
 const weatherKey = secrets.weatherKey;
 const weatherUrl =
-    "http://api.weatherstack.com/current?access_key=" + weatherKey + "&query=";
+    "http://api.weatherstack.com/current?access_key=" + "f2e46a8dba3fed054932ea8ed3c52f58" + "&query=";
 
 const forecast = (latitude, longitude, callback) => {
     const finalURL = weatherUrl + latitude + "," + longitude

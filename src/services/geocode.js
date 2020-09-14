@@ -6,7 +6,7 @@ const geoKey = secrets.geoKey
 const geoUrl = "https://api.mapbox.com/geocoding/v5/mapbox.places/"
 
 const geocode = (city, callback) => {
-    const finalURL = geoUrl + encodeURIComponent(city) + ".json?access_token=" + geoKey
+    const finalURL = geoUrl + encodeURIComponent(city) + ".json?access_token=" + "pk.eyJ1Ijoia2V3eW5ha3NobGxleSIsImEiOiJja2V0bXNocm8yaHJoMzJvNWRneXJ2OHdlIn0.3JAQYBF680MY65UF3iKmNg"
     request({ url: finalURL, json: true}, (error, { body }) => {
         if (error){
             callback('Unable to connect to the geo API..', undefined)
